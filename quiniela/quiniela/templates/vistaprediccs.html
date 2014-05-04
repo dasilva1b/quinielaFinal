@@ -1,0 +1,99 @@
+  <script>
+   function showI(obj) {
+      if (document.getElementById(obj).style.display=='none'){
+	document.getElementById(obj).style.display = "block";
+      }
+      else {
+	document.getElementById(obj).style.display="none";
+      }
+    }
+    </script>
+
+  <style>
+    h3.showw {
+  cursor:pointer;
+  cursor:hand;
+}
+
+
+body {
+  background-color:#BDBDBD;
+}
+
+
+  </style>
+
+
+<h3> Campeon: {{campe}} </h3>
+<h4> Subcampeon: {{subcampe}} </h4>
+<hr></hr>
+<p> Se presenta las predicciones divididas en las fases. Presiona la fase
+para que se muestre/oculte lo predecido para esa fase </p>
+<h3 class="showw" onclick="showI('predicciones')"> Fase de grupos </h3>
+
+<div id="predicciones" style="display:none">
+<ol>
+	{% for inc in grupos %}
+	  <li> {{ inc }} </li>
+	  <br></br>
+        {% endfor %}
+ </ol>
+</div>
+<hr></hr>
+<h3 class="showw" onclick="showI('predicciones2')"> Octavos </h3>
+
+<div id="predicciones2" style="display:none">
+<ul>
+	{% for inc in oct %}
+	  <li> {{ inc }} </li>
+	  <br></br>
+        {% endfor %}
+ </ul>
+</div>
+
+<hr></hr>
+<h3 class="showw" onclick="showI('predicciones3')"> Cuartos </h3>
+
+<div id="predicciones3" style="display:none">
+<ol>
+	{% for inc in cuar %}
+	  <li> {{ inc }} </li>
+	  <br></br>
+        {% endfor %}
+ </ol>
+</div>
+
+<hr></hr>
+<h3 class="showw" onclick="showI('predicciones4')"> Semis </h3>
+
+<div id="predicciones4" style="display:none">
+<ol>
+	{% for inc in semis %}
+	  <li> {{ inc }} </li>
+	  <br></br>
+        {% endfor %}
+ </ol>
+</div>
+<hr></Hr>
+<h3 class="showw" onclick="showI('predicciones5')"> Goleador </h3>
+<div id="predicciones5" style="display:none">
+<ol>
+
+	  <li> {{gole}} </li>
+	  <br></br>
+
+ </ol>
+</div>
+<hr></hr>
+<h3 class="showw" onclick="showI('predicciones6')"> Tercer Lugar </h3>
+<div id="predicciones6" style="display:none">
+<ol>
+
+	  {% for inc in terc %}
+	  <li> {{ inc }} </li>
+	  <br></br>
+        {% endfor %}
+
+ </ol>
+</div>
+<a href="/home/"> Volver </a>

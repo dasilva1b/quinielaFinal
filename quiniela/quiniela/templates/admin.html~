@@ -1,0 +1,294 @@
+<style>
+.button {
+  background: #030303;
+  background-image: -webkit-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -moz-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -ms-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -o-linear-gradient(top, #030303, #bbbcbd);
+  background-image: linear-gradient(to bottom, #030303, #bbbcbd);
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  border: solid #3b2f2d 3px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #fc693c;
+  background-image: -webkit-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -moz-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -ms-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -o-linear-gradient(top, #fc693c, #fc693c);
+  background-image: linear-gradient(to bottom, #fc693c, #fc693c);
+  text-decoration: none;
+}
+body {
+  background-color:#BDBDBD;
+}
+
+
+</style>
+
+<h2> Pagina del administrador de la quiniela </h2>
+<p> Administrador recuerda que:
+    costa rica = costarica
+    costa de marfil = costademarfil
+    españa = espana
+    brazil = brasil
+    Estados UNidos = eeuu
+    --Fases: octavos,cuartos,semis,final,tercero
+</p>
+
+<form action="/resultadosnuevos/" method="post">
+  {% csrf_token %}
+<ul>
+	      <div>
+<li>
+  <label for="nombre">Fase</label>  
+	      <input type="text" name="fase">
+  <label for="nombre">Equipo 1</label>  
+	      <input type="text" name="equipo1">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g1">
+    <label for="nombre">Equipo 2</label>  
+	      <input type="text" name="equipo2">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g2"><br></br>
+</li>
+<li>
+     <label for="nombre">Fase</label>  
+	      <input type="text" name="fase1">
+  <label for="nombre">Equipo 1</label>  
+	      <input type="text" name="equipo11">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g11">
+    <label for="nombre">Equipo 2</label>  
+	      <input type="text" name="equipo22">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g22"><br></br>
+</li>
+<li>
+   <label for="nombre">Fase</label>  
+	      <input type="text" name="fase11">
+  <label for="nombre">Equipo 1</label>  
+	      <input type="text" name="equipo111">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g111">
+    <label for="nombre">Equipo 2</label>  
+	      <input type="text" name="equipo222">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g222"><br></br>
+</li>
+
+<li>
+   <label for="nombre">Fase</label>  
+	      <input type="text" name="fase111">
+  <label for="nombre">Equipo 1</label>  
+	      <input type="text" name="equipo1111">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g1111">
+    <label for="nombre">Equipo 2</label>  
+	      <input type="text" name="equipo2222">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g2222"><br></br>
+</li>
+
+
+<li>
+  <p> Para la final: </p> 
+   <label for="nombre">Fase</label>  
+	      <input type="text" name="faseFinal">
+  <label for="nombre">Equipo 1</label>  
+	      <input type="text" name="equipoFinal">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g1Final">
+    <label for="nombre">Equipo 2</label>  
+	      <input type="text" name="equipoFinal2">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g2Final">
+
+  <label for="nombre">Campeon</label>  
+	      <input type="text" name="campeoeo"><br></br>
+</li>
+
+<li>
+  <p> Para el tercero: </p> 
+   <label for="nombre">Fase</label>  
+	      <input type="text" name="faseTercero">
+  <label for="nombre">Equipo 1</label>  
+	      <input type="text" name="equipoTercero">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g1Tercero">
+    <label for="nombre">Equipo 2</label>  
+	      <input type="text" name="equipoTercero2">
+   <label for="nombre">Goles equipo 1</label>  
+	      <input type="text" name="g2Tercero">
+
+  <label for="nombre">Tercero</label>  
+	      <input type="text" name="terceoeo"><br></br>
+</li>
+
+</ul>
+  
+  <p> <input type="submit" value="Update Points" class="button"></p>
+</form>
+</div>
+<hr></hr>
+<h2> Especificar equipos que pasaron de fase </h2>
+<h3> Octavos</h3>
+<form action="/resultadosnuevos2/" method="post">
+  {% csrf_token %}
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo1"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo2"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo3"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo4"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo5"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo6"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo7"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo8"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo9"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo10"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo11"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo12"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo13"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo14"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo15"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo16"><br></br>
+<p> <input type="submit" value="Update Points" class="button"></p>
+</form>
+
+
+<h3> Cuartos</h3>
+<form action="/resultadosnuevos3/" method="post">
+  {% csrf_token %}
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo1"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo2"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo3"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo4"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo5"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo6"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo7"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo8"><br></br>
+<p> <input type="submit" value="Update Points" class="button"></p>
+
+</form>
+<h3> Semis</h3>
+<form action="/resultadosnuevos4/" method="post">
+  {% csrf_token %}
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo1"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo2"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo3"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo4"><br></br>
+
+<p> <input type="submit" value="Update Points" class="button"></p>
+
+</form>
+
+<h3> Final</h3>
+<form action="/resultadosnuevos5/" method="post">
+  {% csrf_token %}
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo1"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo2"><br></br>
+<p> <input type="submit" value="Update Points" class="button"></p>
+</form>
+
+
+<h3> Tercero</h3>
+<form action="/resultadosnuevos7/" method="post">
+  {% csrf_token %}
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo1"><br></br>
+
+<label for="nombre">Equipo</label>  
+	      <input type="text" name="equipo2"><br></br>
+<p> <input type="submit" value="Update Points" class="button"></p>
+</form>
+
+
+<h3> Goleador </h3>
+<form action="/resultadosnuevos6/" method="post">
+  {% csrf_token %}
+<label for="nombre">Nombre</label>  
+	      <input type="text" name="goleador"><br></br>
+
+
+<p> <input type="submit" value="Update Points" class="button"></p>
+
+</form>
+
+<h3> Puntos Arbitrarios </h3>
+<form action="/ptosarbitrarios/" method="post">
+  {% csrf_token %}
+<label for="nombre">Usuario</label>  
+	      <input type="text" name="user"><br></br>
+
+<label for="nombre">Accion</label>  
+	      <input type="text" name="accion"><br></br>
+
+<label for="nombre">Puntos a Sumar/restar</label>  
+	      <input type="number" name="ptos"><br></br>
+
+
+<p> <input type="submit" value="Update Points" class="button"></p>
+
+</form>

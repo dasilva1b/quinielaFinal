@@ -1,0 +1,364 @@
+ <script>
+   function showI(obj) {
+      if (document.getElementById(obj).style.display=='none'){
+	document.getElementById(obj).style.display = "block";
+      }
+      else {
+	document.getElementById(obj).style.display="none";
+      }
+    }
+    </script>
+
+  <style>
+    h2.showw {
+  cursor:pointer;
+  cursor:hand;
+}
+
+.button {
+  background: #030303;
+  background-image: -webkit-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -moz-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -ms-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -o-linear-gradient(top, #030303, #bbbcbd);
+  background-image: linear-gradient(to bottom, #030303, #bbbcbd);
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  border: solid #3b2f2d 3px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #fc693c;
+  background-image: -webkit-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -moz-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -ms-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -o-linear-gradient(top, #fc693c, #fc693c);
+  background-image: linear-gradient(to bottom, #fc693c, #fc693c);
+  text-decoration: none;
+}
+
+
+body {
+  background-color:#BDBDBD;
+}
+
+
+  </style>
+
+
+<h2 class="showw" onclick="showI('answer2')" > Llena quiniela (Click me)</h2>
+<ol>
+   <div id="answer2" style="display:none">
+    <p> LLena todas las predicciones de los partidos, coloca tu usuario y clave
+	y presiona enviar. 
+	Instrucciones de llenado:
+	<ol>
+	<li>-No olvides llenar todos los datos. Una vez que presiones
+	    enviar no hay vuelta atras</li>
+	<li>-Algunos paises pueden presentar dudas a la hora de escribirlos,
+	     escribe los siguientes paises asi:
+	     <ul>
+		<li> Brasil--> escribelo como Brazil </li>
+		<li> España--> escribelo como Espana </li>
+	    </ul>
+	<li> Si despues de que envias te das cuenta de un error, comunicamelo</li>
+	<ol>
+	</p>
+  <form action="/procesarquiniela/" method="post">
+      {% csrf_token %}
+  <li> <p>Fase de grupos</p> 
+      <ul> Grupo A 
+	  <ul>
+
+	<li> <p> Brazil <input type="hidden" name="Brazil" value="Brazil"> <input type="number" name="BrazilGol" >
+	  - <input type="hidden" name="Croacia" value="Croacia"> Croacia <input type="number" name="CroaciaGol" > </p> </li>
+	  
+	  <li> <p> Mexico <input type="hidden" name="Mexico" value="Mexico"> <input type="number" name="MexicoGol" >
+	  - <input type="hidden" name="Camerun" value="Camerun"> Camerun <input type="number" name="CamerunGol" > </p> </li>
+
+	  <li> <p> Brazil <input type="hidden" name="Brazil/1" value="Brazil"> <input type="number" name="BrazilGol/1" >
+	  - <input type="hidden" name="Mexico/1" value="Mexico"> Mexico <input type="number" name="MexicoGol/1" > </p> </li>
+
+	  <li><p> Camerun <input type="hidden" name="Camerun/1" value="Camerun"> <input type="number" name="CamerunGol/1" >
+	  - <input type="hidden" name="Croacia/1" value="Croacia"> Croacia <input type="number" name="CroaciaGol/1" > </p> </li>
+
+	   <li> <p> Camerun <input type="hidden" name="Camerun/2" value="Camerun"> <input type="number" name="CamerunGol/2" >
+	  - <input type="hidden" name="Brazil/2" value="Brazil"> Brazil <input type="number" name="BrazilGol/2" > </p> </li>
+
+	   <li> <p> Croacia <input type="hidden" name="Croacia/2" value="Croacia"> <input type="number" name="CroaciaGol/2" >
+	  - <input type="hidden" name="Mexico/2" value="Mexico"> Mexico <input type="number" name="MexicoGol/2" > </p> </li>
+	  </ul>
+      </ul>
+
+      <ul> Grupo B 
+	    <ul>
+
+	<li> <p> Espana <input type="hidden" name="Espana" value="Espana"> <input type="number" name="EspanaGol" >
+	  - <input type="hidden" name="Holanda" value="Holanda"> Holanda <input type="number" name="HolandaGol" > </p> </li>
+	  
+	  <li> <p> Chile <input type="hidden" name="Chile" value="Chile"> <input type="number" name="ChileGol" >
+	  - <input type="hidden" name="Australia" value="Australia"> Australia <input type="number" name="AustraliaGol" > </p> </li>
+
+	  <li> <p> Espana <input type="hidden" name="Espana/1" value="Espana"> <input type="number" name="EspanaGol/1" >
+	  - <input type="hidden" name="Chile/1" value="Chile"> Chile <input type="number" name="ChileGol/1" > </p> </li>
+
+	  <li><p> Australia <input type="hidden" name="Australia/1" value="Australia"> <input type="number" name="AustraliaGol/1" >
+	  - <input type="hidden" name="Holanda/1" value="Holanda"> Holanda <input type="number" name="HolandaGol/1" > </p> </li>
+
+	   <li> <p> Australia <input type="hidden" name="Australia/2" value="Australia"> <input type="number" name="AustraliaGol/2" >
+	  - <input type="hidden" name="Espana/2" value="Espana"> Espana <input type="number" name="EspanaGol/2" > </p> </li>
+
+	   <li> <p> Holanda <input type="hidden" name="Holanda/2" value="Holanda"> <input type="number" name="HolandaGol/2" >
+	  - <input type="hidden" name="Chile/2" value="Chile"> Chile <input type="number" name="ChileGol/2" > </p> </li>
+	  </ul>
+	</ul>
+      <ul> Grupo C 
+	     <ul>
+
+	<li> <p> Colombia <input type="hidden" name="Colombia" value="Colombia"> <input type="number" name="ColombiaGol" >
+	  - <input type="hidden" name="Grecia" value="Grecia"> Grecia <input type="number" name="GreciaGol" > </p> </li>
+	  
+	  <li> <p> CostaDeMarfil <input type="hidden" name="CostaDeMarfil" value="CostaDeMarfil"> <input type="number" name="CostaDeMarfilGol" >
+	  - <input type="hidden" name="Japon" value="Japon"> Japon <input type="number" name="JaponGol" > </p> </li>
+
+	  <li> <p> Colombia <input type="hidden" name="Colombia/1" value="Colombia"> <input type="number" name="ColombiaGol/1" >
+	  - <input type="hidden" name="CostaDeMarfil/1" value="CostaDeMarfil"> CostaDeMarfil <input type="number" name="CostaDeMarfilGol/1" > </p> </li>
+
+	  <li><p> Japon <input type="hidden" name="Japon/1" value="Japon"> <input type="number" name="JaponGol/1" >
+	  - <input type="hidden" name="Grecia/1" value="Grecia"> Grecia <input type="number" name="GreciaGol/1" > </p> </li>
+
+	   <li> <p> Japon <input type="hidden" name="Japon/2" value="Japon"> <input type="number" name="JaponGol/2" >
+	  - <input type="hidden" name="Colombia/2" value="Colombia"> Colombia <input type="number" name="ColombiaGol/2" > </p> </li>
+
+	   <li> <p> Grecia <input type="hidden" name="Grecia/2" value="Grecia"> <input type="number" name="GreciaGol/2" >
+	  - <input type="hidden" name="CostaDeMarfil/2" value="CostaDeMarfil"> CostaDeMarfil <input type="number" name="CostaDeMarfilGol/2" > </p> </li>
+	  </ul>
+
+      </ul>
+      <ul> Grupo D 
+
+	<ul>
+
+	<li> <p> Uruguay <input type="hidden" name="Uruguay" value="Uruguay"> <input type="number" name="UruguayGol" >
+	  - <input type="hidden" name="CostaRica" value="CostaRica"> CostaRica <input type="number" name="CostaRicaGol" > </p> </li>
+	  
+	  <li> <p> Inglaterra <input type="hidden" name="Inglaterra" value="Inglaterra"> <input type="number" name="InglaterraGol" >
+	  - <input type="hidden" name="Italia" value="Italia"> Italia <input type="number" name="ItaliaGol" > </p> </li>
+
+	  <li> <p> Uruguay <input type="hidden" name="Uruguay/1" value="Uruguay"> <input type="number" name="UruguayGol/1" >
+	  - <input type="hidden" name="Inglaterra/1" value="Inglaterra"> Inglaterra <input type="number" name="InglaterraGol/1" > </p> </li>
+
+	  <li><p> Italia <input type="hidden" name="Italia/1" value="Italia"> <input type="number" name="ItaliaGol/1" >
+	  - <input type="hidden" name="CostaRica/1" value="CostaRica"> CostaRica <input type="number" name="CostaRicaGol/1" > </p> </li>
+
+	   <li> <p> Italia <input type="hidden" name="Italia/2" value="Italia"> <input type="number" name="ItaliaGol/2" >
+	  - <input type="hidden" name="Uruguay/2" value="Uruguay"> Uruguay <input type="number" name="UruguayGol/2" > </p> </li>
+
+	   <li> <p> CostaRica <input type="hidden" name="CostaRica/2" value="CostaRica"> <input type="number" name="CostaRicaGol/2" >
+	  - <input type="hidden" name="Inglaterra/2" value="Inglaterra"> Inglaterra <input type="number" name="InglaterraGol/2" > </p> </li>
+	  </ul>
+      </ul>
+      <ul> Grupo E 
+	<ul>
+	<li> <p> Suiza <input type="hidden" name="Suiza" value="Suiza"> <input type="number" name="SuizaGol" >
+	  - <input type="hidden" name="Ecuador" value="Ecuador"> Ecuador <input type="number" name="EcuadorGol" > </p> </li>
+	  
+	  <li> <p> Francia <input type="hidden" name="Francia" value="Francia"> <input type="number" name="FranciaGol" >
+	  - <input type="hidden" name="Honduras" value="Honduras"> Honduras <input type="number" name="HondurasGol" > </p> </li>
+
+	  <li> <p> Suiza <input type="hidden" name="Suiza/1" value="Suiza"> <input type="number" name="SuizaGol/1" >
+	  - <input type="hidden" name="Francia/1" value="Francia"> Francia <input type="number" name="FranciaGol/1" > </p> </li>
+
+	  <li><p> Honduras <input type="hidden" name="Honduras/1" value="Honduras"> <input type="number" name="HondurasGol/1" >
+	  - <input type="hidden" name="Ecuador/1" value="Ecuador"> Ecuador <input type="number" name="EcuadorGol/1" > </p> </li>
+
+	   <li> <p>Honduras <input type="hidden" name="Honduras/2" value="Honduras"> <input type="number" name="HondurasGol/2" >
+	  - <input type="hidden" name="Suiza/2" value="Suiza"> Suiza <input type="number" name="SuizaGol/2" > </p> </li>
+
+	   <li> <p> Ecuador <input type="hidden" name="Ecuador/2" value="Ecuador"> <input type="number" name="EcuadorGol/2" >
+	  - <input type="hidden" name="Francia/2" value="Francia"> Francia <input type="number" name="FranciaGol/2" > </p> </li>
+	  </ul>
+
+
+      </ul>
+      <ul> Grupo F 
+	<ul>
+	<li> <p> Argentina <input type="hidden" name="Argentina" value="Argentina"> <input type="number" name="ArgentinaGol" >
+	  - <input type="hidden" name="Bosnia" value="Bosnia"> Bosnia <input type="number" name="BosniaGol" > </p> </li>
+	  
+	  <li> <p> Iran <input type="hidden" name="Iran" value="Iran"> <input type="number" name="IranGol" >
+	  - <input type="hidden" name="Nigeria" value="Nigeria"> Nigeria <input type="number" name="NigeriaGol" > </p> </li>
+
+	  <li> <p> Argentina <input type="hidden" name="Argentina/1" value="Argentina"> <input type="number" name="ArgentinaGol/1" >
+	  - <input type="hidden" name="Iran/1" value="Iran"> Iran <input type="number" name="IranGol/1" > </p> </li>
+
+	  <li><p> Nigeria <input type="hidden" name="Nigeria/1" value="Nigeria"> <input type="number" name="NigeriaGol/1" >
+	  - <input type="hidden" name="Bosnia/1" value="Bosnia"> Bosnia <input type="number" name="BosniaGol/1" > </p> </li>
+
+	   <li> <p> Nigeria <input type="hidden" name="Nigeria/2" value="Nigeria"> <input type="number" name="NigeriaGol/2" >
+	  - <input type="hidden" name="Argentina/2" value="Argentina"> Argentina <input type="number" name="ArgentinaGol/2" > </p> </li>
+
+	   <li> <p> Iran <input type="hidden" name="Iran/2" value="Iran"> <input type="number" name="IranGol/2" >
+	  - <input type="hidden" name="Bosnia/2" value="Bosnia"> Bosnia <input type="number" name="BosniaGol/2" > </p> </li>
+	  </ul>
+
+      </ul>
+      <ul> Grupo G 
+
+	<ul>
+	<li> <p> Alemania <input type="hidden" name="Alemania" value="Alemania"> <input type="number" name="AlemaniaGol" >
+	  - <input type="hidden" name="Portugal" value="Portugal"> Portugal <input type="number" name="PortugalGol" > </p> </li>
+	  
+	  <li> <p> Ghana <input type="hidden" name="Ghana" value="Ghana"> <input type="number" name="GhanaGol" >
+	  - <input type="hidden" name="EEUU" value="EEUU"> EEUU <input type="number" name="EEUUGol" > </p> </li>
+
+	  <li> <p> Alemania <input type="hidden" name="Alemania/1" value="Alemania"> <input type="number" name="AlemaniaGol/1" >
+	  - <input type="hidden" name="Ghana/1" value="Ghana"> Ghana <input type="number" name="GhanaGol/1" > </p> </li>
+
+	  <li><p> EEUU <input type="hidden" name="EEUU/1" value="EEUU"> <input type="number" name="EEUUGol/1" >
+	  - <input type="hidden" name="Portugal/1" value="Portugal"> Portugal <input type="number" name="PortugalGol/1" > </p> </li>
+
+	   <li> <p> EEUU <input type="hidden" name="EEUU/2" value="EEUU"> <input type="number" name="EEUUGol/2" >
+	  - <input type="hidden" name="Alemania/2" value="Alemania"> Alemania <input type="number" name="AlemaniaGol/2" > </p> </li>
+
+	   <li> <p> Portugal <input type="hidden" name="Portugal/2" value="Portugal"> <input type="number" name="PortugalGol/2" >
+	  - <input type="hidden" name="Ghana/2" value="Ghana"> Ghana <input type="number" name="GhanaGol/2" > </p> </li>
+	  </ul>
+
+      </ul>
+      <ul> Grupo H 
+
+	<ul>
+	<li> <p> Belgica <input type="hidden" name="Belgica" value="Belgica"> <input type="number" name="BelgicaGol" >
+	  - <input type="hidden" name="Argelia" value="Argelia"> Argelia <input type="number" name="ArgeliaGol" > </p> </li>
+	  
+	  <li> <p> Rusia <input type="hidden" name="Rusia" value="Rusia"> <input type="number" name="RusiaGol" >
+	  - <input type="hidden" name="Corea" value="Corea"> Corea <input type="number" name="CoreaGol" > </p> </li>
+
+	  <li> <p> Belgica <input type="hidden" name="Belgica/1" value="Belgica"> <input type="number" name="BelgicaGol/1" >
+	  - <input type="hidden" name="Rusia/1" value="Rusia"> Rusia <input type="number" name="RusiaGol/1" > </p> </li>
+
+	  <li><p>Corea <input type="hidden" name="Corea/1" value="Corea"> <input type="number" name="CoreaGol/1" >
+	  - <input type="hidden" name="Argelia/1" value="Argelia"> Argelia <input type="number" name="ArgeliaGol/1" > </p> </li>
+
+	   <li> <p> Corea <input type="hidden" name="Corea/2" value="Corea"> <input type="number" name="CoreaGol/2" >
+	  - <input type="hidden" name="Belgica/2" value="Belgica"> Belgica <input type="number" name="BelgicaGol/2" > </p> </li>
+
+	   <li> <p> Argelia <input type="hidden" name="Argelia/2" value="Argelia"> <input type="number" name="ArgeliaGol/2" >
+	  - <input type="hidden" name="Rusia/2" value="Rusia"> Rusia <input type="number" name="RusiaGol/2" > </p> </li>
+	  </ul>
+
+
+
+
+
+      </ul>
+  </li>
+
+  <li> Octavos </li>
+      <p> Formato: Equipo Goles - Equipo Goles.
+	  Ej: Alemania 2 - Brazil 3</p>
+      <ul>
+      <li><p> 1A <input type="text" name="1A/oct"> <input type="number" name="1AGol" >
+	  - <input type="text" name="2B/oct"> 2B <input type="number" name="2BGol" > </p> </li>
+
+      <li><p> 1C <input type="text" name="1C/oct"> <input type="number" name="1CGol" >
+	  - <input type="text" name="2D/oct"> 2D <input type="number" name="2DGol" > </p> </li>
+
+      <li><p> 1B <input type="text" name="1B/oct"> <input type="number" name="1BGol" >
+	  - <input type="text" name="2A/oct"> 2A <input type="number" name="2AGol" > </p> </li>
+
+      <li><p> 1D <input type="text" name="1D/oct"> <input type="number" name="1DGol" >
+	  - <input type="text" name="2C/oct"> 2C <input type="number" name="2CGol" > </p> </li>
+
+           <li><p> 1E <input type="text" name="1E/oct"> <input type="number" name="1EGol" >
+	  - <input type="text" name="2F/oct"> 2F <input type="number" name="2FGol" > </p> </li>
+
+      <li><p> 1G <input type="text" name="1G/oct"> <input type="number" name="1GGol" >
+	  - <input type="text" name="2H/oct"> 2H <input type="number" name="2HGol" > </p> </li>
+
+      <li><p> 1F <input type="text" name="1F/oct"> <input type="number" name="1FGol" >
+	  - <input type="text" name="2E/oct"> 2E <input type="number" name="2EGol" > </p> </li>
+
+      <li><p> 1H <input type="text" name="1H/oct"> <input type="number" name="1HGol" >
+	  - <input type="text" name="2G/oct"> 2G <input type="number" name="2GGol" > </p> </li>
+      </ul>
+
+  <li> Cuartos   </li>
+        <p> Formato: Equipo Goles - Equipo Goles.
+	  Ej: Alemania 2 - Brazil 3</p>
+	<UL>
+          <li> 1<p> Ganador de 1A-2B <input type="text" name="1A-2B/cuar"> <input type="number" name="1A-2BGol" >
+	  - <input type="text" name="1C-2D/cuar"> Ganador de 1C-2D <input type="number" name="1C-2DGol" > </p> </li>
+
+	   <li>2<p> Ganador de 1B-2A <input type="text" name="1B-2A/cuar"> <input type="number" name="1B-2AGol" >
+	  - <input type="text" name="1D-2C/cuar"> Ganador de 1D-2C <input type="number" name="1D-2CGol" > </p> </li>
+
+	   <li>3<p> Ganador de 1E-2F <input type="text" name="1E-2F/cuar"> <input type="number" name="1E-2FGol" >
+	  - <input type="text" name="1G-2H/cuar"> Ganador de 1G-2H <input type="number" name="1G-2HGol" > </p> </li>
+
+	   <li>4<p> Ganador de 1F-2E <input type="text" name="1F-2E/cuar"> <input type="number" name="1F-2EGol" >
+	  - <input type="text" name="1H-2G/cuar"> Ganador de 1H-2G <input type="number" name="1H-2GGol" > </p> </li>
+	</ul>
+ 
+
+  <li> Semis </li>
+        <p> Formato: Equipo Goles - Equipo Goles.
+	  Ej: Alemania 2 - Brazil 3</p>
+
+      <UL>
+          <li><p> Ganador de cuartos 1 <input type="text" name="1s/semi"> <input type="number" name="1sGol" >
+	  - <input type="text" name="2s/semi"> Ganador de cuartos 3 <input type="number" name="2sGol" > </p> </li>
+
+	   <li><p> Ganador de cuartos 2 <input type="text" name="3s/semi"> <input type="number" name="3sGol" >
+	  - <input type="text" name="4s/semi"> Ganador de cuartos 4 <input type="number" name="4sGol" > </p> </li>
+	</ul>
+	
+
+
+  <li> Final 
+	<ul>
+         <li><p> Finalista1 <input type="text" name="1final"> <input type="number" name="1fGol" >
+	  - <input type="text" name="2final"> Finalista2<input type="number" name="2fGol" > </p> 
+	  Campeon <input type="text" name="campeoeo" > </li>
+
+	</ul>
+
+  </li>
+
+  <li> Tercer Lugar
+	<ul>
+         <li><p> Equipo 1 <input type="text" name="1terc"> <input type="number" name="1tGol" >
+	  - <input type="text" name="2terc"> Equipo2<input type="number" name="2tGol" > </p>
+	  Tercero <input type="text" name="terceoeo" >  </li>
+
+	</ul>
+
+  </li>
+
+  <li> Goleador
+	<ul>
+         <li><p> Apellido del jugador <input type="text" name="goleador">  </p> </li>
+
+	</ul>
+
+  </li>
+  
+
+
+<hr></hr>
+<p> Usuario <input type="text" name="nombre"></p>
+	      
+<p> Clave <input type="password" name="clave"></p>
+	   
+  <p> <input type="submit" value="Enviar" class="button"></p>
+</form>
+</div>
+
+</ol>

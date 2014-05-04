@@ -1,0 +1,98 @@
+<html>
+<style>
+.button {
+  background: #030303;
+  background-image: -webkit-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -moz-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -ms-linear-gradient(top, #030303, #bbbcbd);
+  background-image: -o-linear-gradient(top, #030303, #bbbcbd);
+  background-image: linear-gradient(to bottom, #030303, #bbbcbd);
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  border: solid #3b2f2d 3px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #fc693c;
+  background-image: -webkit-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -moz-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -ms-linear-gradient(top, #fc693c, #fc693c);
+  background-image: -o-linear-gradient(top, #fc693c, #fc693c);
+  background-image: linear-gradient(to bottom, #fc693c, #fc693c);
+  text-decoration: none;
+}
+
+body {
+  background-color:#BDBDBD;
+}
+</style>
+
+<body>
+<h1> QUINIELA BRAZIL 2014 </h1>
+    <hr></hr>
+
+<div style="text-align:center">
+<h2> Creacion cuenta </h2>
+<form action="/creacioncuenta/" method="post">
+  {% csrf_token %}
+	      <div>
+  <label for="nombre">Usuario</label>  
+	      <input type="text" name="nombre">
+	      </div>
+	      <div>
+  <label for="nombre">Clave</label>  
+	      <input type="password" name="clave">
+	      </div>
+  <p> <input type="submit" value="Crear" class="button"></p>
+</form>
+</div>
+
+<hr></hr>
+<div style="text-align:center">
+<h2> Administrador </H2>
+<form action="/adminlogin/" method="post">
+  {% csrf_token %}
+	      <div>
+  <label for="nombre">Usuario</label>  
+	      <input type="text" name="nombre">
+	      </div>
+	      <div>
+  <label for="nombre">Clave</label>  
+	      <input type="password" name="clave">
+	      </div>
+  <p> <input type="submit" value="Log in" class="button"></p>
+</form>
+</div>
+    <hr></hr>
+<h2> Llenar Quiniela </h2>
+<form action="/iniciarsesion/" method="post">
+  {% csrf_token %}
+  <p> <input type="submit" value="Llenar" class="button"></p>
+</form>
+</div>
+    <hr></hr>
+<h2> Tabla de posiciones </h2>
+  <ol>
+	{% for inc in gente %}
+	  <li > {{ inc }} </li>
+        {% endfor %}
+   </ol>
+<hr> </hr>
+
+<h2> Ver predicciones </h2>
+<form action="/verpredicc/" method="post">
+  {% csrf_token %}
+  <label for="nombre">De quien quiere ver las predicciones?</label>  
+	      <input type="text" name="nombre">
+
+  <p> <input type="submit" value="Ver" class="button"></p>
+</form>
+</body>
+
+</html>
